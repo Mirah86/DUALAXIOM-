@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DUALAXIOM_PORTAL</title>
+  <style>
+    body { background: #000; color: #0af; font-family: 'Courier New', monospace; margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
+    
+    .mist { 
+      position: absolute; width: 100%; height: 100%; 
+      background: radial-gradient(circle at center, rgba(0, 170, 255, 0.05) 0%, transparent 70%);
+      filter: blur(50px); pointer-events: none; transition: background 0.1s ease-out;
+    }
+
+    .pulse-node { 
+      border: 1px solid #0af; padding: 20px 40px; cursor: pointer; z-index: 10;
+      transition: 0.5s; letter-spacing: 4px; text-transform: uppercase;
+    }
+    
+    .pulse-node:hover { background: #0af; color: #000; box-shadow: 0 0 40px #0af; }
+  </style>
+</head>
+<body>
+
+  <div class="mist" id="mist"></div>
+  <div class="pulse-node" onclick="initiateHandshake()">[INITIALIZE_ACCESS]</div>
+
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      const mist = document.getElementById('mist');
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      mist.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0, 170, 255, 0.08) 0%, transparent 50%)`;
+    });
+
+    function initiateHandshake() {
+      alert("SENTRY-STATE: Handshake protocol active. Awaiting encryption keys...");
+    }
+  </script>
+</body>
+</html>
